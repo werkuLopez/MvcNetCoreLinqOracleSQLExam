@@ -1,0 +1,26 @@
+﻿@model Comic 
+
+<div class="container p-5">
+    <h1 class="text-danger">¿ Desea eliminar el comic @Model.Nombre?</h1>
+    <form method="post">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">@Model.Nombre</h2>
+            </div>
+            <div class="card-body">
+                <p class="card-text">@Model.Descripcion</p>
+                <img src="@Model.Imagen" style="width:150px; height:150px;" />
+            </div>
+            <div class="card-footer row">
+                <div class="col-6">
+                    <button name="idcomic" value="@Model.IdComic" class="btn btn-outline-danger w-100">
+                    Eliminar
+                </button>
+                </div>
+                <div class="col-6">
+                    <a asp-controller="Comics" asp-action="Index" class="btn btn-outline-primary w-100">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

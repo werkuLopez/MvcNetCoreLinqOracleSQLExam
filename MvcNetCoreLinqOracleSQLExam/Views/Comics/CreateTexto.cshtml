@@ -1,0 +1,26 @@
+﻿@model Comic
+<div class="container pt-5">
+    <p>
+        <a asp-controller="Comics" asp-action="Index" class="btn btn-outline-primary w-100">Volver</a>
+    </p>
+    <h1> INSERTAR CON NORMAL</h1>
+    <form method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Nombre: </label>
+                <input type="text" class="form-control" name="Nombre" placeholder="enter the name..." />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Imagen: </label>
+                <input type="text" class="form-control" name="Imagen" placeholder="enter the image..." />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Descripcion: </label>
+                <input type="text" class="form-control" name="Descripcion" placeholder="enter the decription..." />
+            </div>
+        </div>
+        <button class="btn btn-outline-primary">
+            guardar
+        </button>
+    </form>
+</div>

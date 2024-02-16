@@ -1,0 +1,58 @@
+﻿@model List<Comic>
+<div class="container pt-5">
+    <ul class="nav navbar">
+        <li class="nav-item">
+        <a asp-controller="Comics" asp-action="CreateProcedure" class="nav-link p-2">
+            nuevo comic - procedimiento
+        </a>
+        </li>
+        <li class="nav-item">
+        <a asp-controller="Comics" asp-action="CreateTexto" class="nav-link p-2">
+            nuevo comic - texto
+        </a>
+        </li>
+        <li class="nav-item">
+        <a asp-controller="Comics" asp-action="BuscarComic" class="nav-link p-2 ">
+            buscar comic
+        </a>
+        </li>
+    </ul>
+    <h1 class="text-danger">
+        @ViewData["Alerta"]
+    </h1>
+
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Imagen</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Comic comic in Model)
+                {
+                    <tr>
+                        <td>@comic.IdComic</td>
+                        <td>@comic.Nombre</td>
+                        <td>@comic.Descripcion</td>
+                        <td>
+                            <img src="@comic.Imagen" style="width:150px; height:150px;" />
+                        </td>
+@*                         <td>
+                            <a asp-controller="Comics" asp-action="Details" asp-route-idcomic="@comic.IdComic" class="btn btn-outline-primary">
+                                Detalles
+                            </a> 
+                        </td> *@
+                        <td>
+                            <a asp-controller="Comics" asp-action="Delete" asp-route-idcomic="@comic.IdComic" class="btn btn-outline-danger">
+                                Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+    </table>
+</div>

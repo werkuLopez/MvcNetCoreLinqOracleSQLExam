@@ -1,0 +1,54 @@
+﻿@model Comic
+@{
+    List<Comic> comics = (List<Comic>)ViewData["Comics"];
+}
+
+<div class="container p-3">
+    <a asp-controller="Comics" asp-action="Index" class="btn btn-outline-primary w-100 mb-5">
+        volver
+    </a>
+    <form method="post" class="row">
+        <div class="col-md-9">
+            <select class="form-control" name="idcomic">
+                @foreach (Comic cm in comics)
+                {
+                    <option value="@cm.IdComic">@cm.Nombre</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-outline-primary">
+                buscar
+            </button>
+        </div>
+    </form>
+</div>
+@if (Model != null)
+{
+    <table class="table table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Imagen</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.IdComic</td>
+                <td>@Model.Nombre</td>
+                <td>@Model.Descripcion</td>
+                <td>
+                    <img src="@Model.Imagen" style="width:150px; height:150px;" />
+                </td>
+                <td>
+                    <a asp-controller="Comics" asp-action="Delete" asp-route-idcomic="@Model.IdComic" class="btn btn-outline-danger">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
